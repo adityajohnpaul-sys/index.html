@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apna Sahara — Trusted Companions for Dehradun's Elders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pine:#1F3B2C;
+    --pine-dark:#152A20;
+    --paper:#F1ECDF;
+    --paper-deep:#E8E1CE;
+    --brass:#B9832E;
+    --brass-light:#D9A94F;
+    --ink:#2A2620;
+    --ink-soft:#5B5548;
+    --sage:#DCE4D2;
+    --terracotta:#A8503C;
+    --white:#FBF9F3;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Source Sans 3',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+  }
+  h1,h2,h3,h4{font-family:'Fraunces',serif;font-weight:600;color:var(--pine-dark);}
+  .mono{font-family:'JetBrains Mono',monospace;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(241,236,223,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(31,59,44,0.15);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:1120px;margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-mark{
+    width:38px;height:38px;border-radius:50%;
+    background:var(--pine);
+    display:flex;align-items:center;justify-content:center;
+    color:var(--brass-light);font-family:'Fraunces',serif;font-weight:700;font-size:16px;
+    border:2px solid var(--brass);
+  }
+  .brand-name{font-family:'Fraunces',serif;font-weight:700;font-size:19px;color:var(--pine-dark);}
+  .brand-tag{font-size:11px;color:var(--ink-soft);letter-spacing:0.04em;display:block;margin-top:-2px;}
+  .nav-links{display:flex;gap:28px;align-items:center;}
+  .nav-links a{font-size:14.5px;font-weight:600;color:var(--ink-soft);}
+  .nav-links a:hover{color:var(--pine);}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 22px;border-radius:3px;
+    font-weight:700;font-size:14.5px;cursor:pointer;border:none;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-brass{background:var(--brass);color:var(--white);}
+  .btn-brass:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(185,131,46,0.35);}
+  .btn-outline{background:transparent;border:1.5px solid var(--pine);color:var(--pine);}
+  .btn-outline:hover{background:var(--pine);color:var(--white);}
+  @media(max-width:860px){.nav-links a:not(.btn){display:none;}}
+
+  /* HERO */
+  .hero{padding:72px 0 60px;}
+  .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center;}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;}}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:0.12em;
+    color:var(--brass);text-transform:uppercase;font-weight:700;margin-bottom:14px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .eyebrow::before{content:'';width:22px;height:1px;background:var(--brass);}
+  .hero h1{font-size:44px;line-height:1.12;letter-spacing:-0.01em;margin-bottom:18px;}
+  .hero h1 em{font-style:normal;color:var(--brass);}
+  .hero p.lead{font-size:17.5px;color:var(--ink-soft);max-width:480px;margin-bottom:28px;}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;}
+
+  /* ID CARD (signature element) */
+  .id-card{
+    background:var(--pine);
+    border-radius:6px;
+    padding:22px;
+    color:var(--paper);
+    position:relative;
+    box-shadow:0 24px 48px -12px rgba(21,42,32,0.4);
+    transform:rotate(1.2deg);
+  }
+  .id-card::before{
+    content:'';position:absolute;inset:8px;
+    border:1px dashed rgba(241,236,223,0.28);
+    border-radius:3px;pointer-events:none;
+  }
+  .id-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;}
+  .id-label{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.1em;color:var(--brass-light);text-transform:uppercase;}
+  .id-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:rgba(241,236,223,0.6);}
+  .id-photo{
+    width:100%;aspect-ratio:16/10;border-radius:4px;
+    background:linear-gradient(135deg,#2C4B39,#1a3325);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:16px;position:relative;overflow:hidden;
+    border:1px solid rgba(241,236,223,0.15);
+  }
+  .id-photo-icon{width:64px;height:64px;opacity:0.5;}
+  .stamp{
+    position:absolute;top:12px;right:12px;
+    width:64px;height:64px;border-radius:50%;
+    border:2px solid var(--brass-light);
+    display:flex;align-items:center;justify-content:center;
+    transform:rotate(-14deg);
+    font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;
+    color:var(--brass-light);text-align:center;line-height:1.2;letter-spacing:0.04em;
+    text-transform:uppercase;
+  }
+  .id-name{font-family:'Fraunces',serif;font-size:22px;font-weight:600;color:var(--white);margin-bottom:2px;}
+  .id-role{font-size:13px;color:var(--brass-light);margin-bottom:14px;}
+  .id-facts{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;font-size:12.5px;}
+  .id-facts div span{display:block;font-family:'JetBrains Mono',monospace;font-size:10px;color:rgba(241,236,223,0.55);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:2px;}
+  .id-facts div b{color:var(--paper);font-weight:600;}
+
+  /* TRUST STRIP */
+  .trust-strip{background:var(--pine-dark);padding:26px 0;}
+  .trust-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+  .trust-item{display:flex;align-items:center;gap:12px;color:var(--paper);}
+  .trust-seal{
+    width:40px;height:40px;border-radius:50%;border:1.5px solid var(--brass-light);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .trust-seal svg{width:18px;height:18px;stroke:var(--brass-light);}
+  .trust-item strong{display:block;font-size:14px;}
+  .trust-item small{color:rgba(241,236,223,0.6);font-size:12px;}
+
+  /* SECTIONS */
+  section{padding:76px 0;}
+  .section-head{max-width:620px;margin-bottom:44px;}
+  .section-head h2{font-size:32px;margin-bottom:12px;}
+  .section-head p{color:var(--ink-soft);font-size:16px;}
+
+  /* SERVICES */
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media(max-width:860px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.services-grid{grid-template-columns:1fr;}}
+  .service-card{
+    background:var(--white);border:1px solid var(--paper-deep);border-radius:6px;
+    padding:26px 22px;transition:border-color .15s ease, transform .15s ease;
+  }
+  .service-card:hover{border-color:var(--brass);transform:translateY(-2px);}
+  .service-icon{
+    width:42px;height:42px;border-radius:50%;background:var(--sage);
+    display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+  }
+  .service-icon svg{width:20px;height:20px;stroke:var(--pine);}
+  .service-card h3{font-size:17px;margin-bottom:6px;}
+  .service-card p{font-size:14px;color:var(--ink-soft);}
+
+  /* WHY */
+  .why{background:var(--pine);color:var(--paper);}
+  .why .section-head h2, .why .section-head p{color:var(--paper);}
+  .why .section-head p{color:rgba(241,236,223,0.72);}
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  @media(max-width:860px){.why-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.why-grid{grid-template-columns:1fr;}}
+  .why-item{border-left:2px solid var(--brass);padding-left:16px;}
+  .why-item .num{font-family:'JetBrains Mono',monospace;color:var(--brass-light);font-size:12px;margin-bottom:8px;display:block;}
+  .why-item p{font-size:14px;color:rgba(241,236,223,0.85);}
+
+  /* PACKAGES */
+  .pkg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  @media(max-width:900px){.pkg-grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:560px){.pkg-grid{grid-template-columns:1fr;}}
+  .pkg-card{
+    background:var(--white);border:1px solid var(--paper-deep);border-radius:6px;
+    padding:26px 22px;display:flex;flex-direction:column;position:relative;
+  }
+  .pkg-card.featured{border-color:var(--brass);box-shadow:0 12px 32px -12px rgba(185,131,46,0.35);}
+  .pkg-tag{
+    position:absolute;top:-11px;left:22px;background:var(--brass);color:var(--white);
+    font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.06em;text-transform:uppercase;
+    padding:4px 10px;border-radius:2px;
+  }
+  .pkg-name{font-size:12px;color:var(--brass);font-family:'JetBrains Mono',monospace;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px;}
+  .pkg-card h3{font-size:20px;margin-bottom:10px;}
+  .pkg-price{font-family:'JetBrains Mono',monospace;font-size:26px;font-weight:700;color:var(--pine-dark);margin-bottom:2px;}
+  .pkg-price small{font-size:13px;color:var(--ink-soft);font-weight:400;}
+  .pkg-best{font-size:12.5px;color:var(--ink-soft);margin-bottom:16px;font-style:italic;}
+  .pkg-list{list-style:none;font-size:13.5px;color:var(--ink-soft);flex:1;margin-bottom:18px;}
+  .pkg-list li{padding:5px 0;padding-left:18px;position:relative;}
+  .pkg-list li::before{content:'—';position:absolute;left:0;color:var(--brass);}
+  .pkg-btn{width:100%;padding:10px;border-radius:3px;border:1.5px solid var(--pine);background:transparent;color:var(--pine);font-weight:700;font-size:13.5px;cursor:pointer;}
+  .pkg-btn:hover{background:var(--pine);color:var(--white);}
+
+  /* PAY PER USE */
+  .rate-table{width:100%;border-collapse:collapse;background:var(--white);border-radius:6px;overflow:hidden;border:1px solid var(--paper-deep);}
+  .rate-table th{background:var(--sage);text-align:left;padding:12px 18px;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;font-family:'JetBrains Mono',monospace;color:var(--pine-dark);}
+  .rate-table td{padding:13px 18px;font-size:14.5px;border-top:1px solid var(--paper-deep);}
+  .rate-table td:last-child{font-family:'JetBrains Mono',monospace;font-weight:700;color:var(--brass);white-space:nowrap;text-align:right;}
+
+  /* HOW IT WORKS */
+  .steps{counter-reset:step;}
+  .step-row{display:flex;gap:20px;padding:22px 0;border-top:1px solid var(--paper-deep);}
+  .step-row:last-child{border-bottom:1px solid var(--paper-deep);}
+  .step-num{
+    counter-increment:step;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--brass);
+    flex-shrink:0;width:34px;padding-top:2px;
+  }
+  .step-num::before{content:'0' counter(step);}
+  .step-body h4{font-size:16.5px;margin-bottom:4px;}
+  .step-body p{font-size:14px;color:var(--ink-soft);}
+
+  /* SAFETY */
+  .safety-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  @media(max-width:700px){.safety-grid{grid-template-columns:1fr;}}
+  .safety-item{
+    background:var(--white);border:1px solid var(--paper-deep);border-radius:6px;
+    padding:18px 20px;display:flex;gap:14px;align-items:flex-start;
+  }
+  .safety-item .trust-seal{border-color:var(--pine);}
+  .safety-item .trust-seal svg{stroke:var(--pine);}
+  .safety-item h4{font-size:14.5px;margin-bottom:3px;}
+  .safety-item p{font-size:13px;color:var(--ink-soft);}
+
+  /* BOOKING */
+  .booking{background:var(--sage);}
+  .booking-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:44px;}
+  @media(max-width:900px){.booking-grid{grid-template-columns:1fr;}}
+  .booking-form{background:var(--white);border-radius:8px;padding:32px;border:1px solid var(--paper-deep);}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+  @media(max-width:520px){.form-row{grid-template-columns:1fr;}}
+  .field{margin-bottom:14px;}
+  .field label{display:block;font-size:12.5px;font-weight:600;color:var(--ink-soft);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.04em;}
+  .field input, .field select, .field textarea{
+    width:100%;padding:11px 13px;border:1.5px solid var(--paper-deep);border-radius:4px;
+    font-family:'Source Sans 3',sans-serif;font-size:14.5px;background:var(--paper);color:var(--ink);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{outline:2px solid var(--brass);outline-offset:1px;border-color:var(--brass);}
+  .field textarea{resize:vertical;min-height:72px;}
+  .submit-btn{width:100%;padding:14px;font-size:15px;}
+  .form-note{font-size:12.5px;color:var(--ink-soft);margin-top:12px;text-align:center;}
+  .confirm-box{
+    display:none;background:var(--pine);color:var(--paper);border-radius:8px;padding:28px;text-align:center;
+  }
+  .confirm-box.show{display:block;}
+  .confirm-box .stamp-big{
+    width:64px;height:64px;border-radius:50%;border:2px solid var(--brass-light);margin:0 auto 14px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .confirm-box .stamp-big svg{width:28px;height:28px;stroke:var(--brass-light);}
+  .confirm-id{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--brass-light);margin-top:10px;}
+  .booking-side h3{font-size:24px;margin-bottom:14px;}
+  .booking-side p{color:var(--ink-soft);margin-bottom:20px;font-size:15px;}
+  .contact-line{display:flex;gap:12px;align-items:center;margin-bottom:14px;font-size:14.5px;}
+  .contact-line .trust-seal{width:34px;height:34px;border-color:var(--pine);}
+  .contact-line .trust-seal svg{width:15px;height:15px;stroke:var(--pine);}
+
+  /* ADMIN */
+  .admin-toggle{position:fixed;bottom:20px;right:20px;z-index:60;}
+  .admin-panel{
+    display:none;position:fixed;inset:0;background:rgba(21,42,32,0.85);z-index:70;
+    align-items:center;justify-content:center;padding:24px;
+  }
+  .admin-panel.show{display:flex;}
+  .admin-inner{background:var(--white);border-radius:8px;max-width:820px;width:100%;max-height:80vh;overflow-y:auto;padding:26px;}
+  .admin-inner h3{margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;}
+  .admin-close{background:none;border:none;font-size:22px;cursor:pointer;color:var(--ink-soft);}
+  .booking-row{border-top:1px solid var(--paper-deep);padding:12px 0;font-size:13.5px;}
+  .booking-row b{color:var(--pine-dark);}
+  .empty-state{color:var(--ink-soft);font-size:14px;padding:20px 0;text-align:center;}
+
+  footer{background:var(--pine-dark);color:rgba(241,236,223,0.7);padding:44px 0 28px;}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;margin-bottom:28px;}
+  @media(max-width:700px){.footer-grid{grid-template-columns:1fr;}}
+  footer h4{color:var(--paper);font-family:'Fraunces',serif;font-size:15px;margin-bottom:12px;}
+  footer p, footer a{font-size:13.5px;color:rgba(241,236,223,0.65);}
+  footer ul{list-style:none;}
+  footer li{margin-bottom:8px;}
+  .footer-bottom{border-top:1px solid rgba(241,236,223,0.15);padding-top:20px;font-size:12.5px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="brand-mark">AS</div>
+      <div>
+        <span class="brand-name">Apna Sahara</span>
+        <span class="brand-tag">Dehradun · Ex-Servicemen Companions</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#packages">Packages</a>
+      <a href="#how">How it works</a>
+      <a href="#safety">Trust &amp; Safety</a>
+      <a href="#book" class="btn btn-brass">Book a Companion</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Serving Dehradun since 2026</div>
+      <h1>A trusted <em>ex-serviceman</em> at your parents' side, every time they step out.</h1>
+      <p class="lead">Apna Sahara sends verified, disciplined ex-servicemen from Uttarakhand to accompany elderly parents to hospitals, temples, markets and family events — so your family gets peace of mind, and theirs gets dignity and company.</p>
+      <div class="hero-cta">
+        <a href="#book" class="btn btn-brass">Book a Companion</a>
+        <a href="#packages" class="btn btn-outline">See Packages</a>
+      </div>
+    </div>
+    <div class="id-card">
+      <div class="id-top">
+        <span class="id-label">Service Record</span>
+        <span class="id-num">AS / DDN / 0114</span>
+      </div>
+      <div class="id-photo">
+        <svg class="id-photo-icon" viewBox="0 0 24 24" fill="none" stroke="#DCE4D2" stroke-width="1.2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-7 8-7s8 3 8 7"/></svg>
+        <div class="stamp">Police<br>Verified</div>
+      </div>
+      <div class="id-name">Nb Sub Rajendra Bisht (Retd.)</div>
+      <div class="id-role">Field Escort · 22 yrs Indian Army</div>
+      <div class="id-facts">
+        <div><span>Domicile</span><b>Pauri Garhwal, UK</b></div>
+        <div><span>Languages</span><b>Hindi, Garhwali</b></div>
+        <div><span>Status</span><b>On Duty · GPS Tracked</b></div>
+        <div><span>Client Rating</span><b>4.9 / 5.0</b></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="trust-strip">
+  <div class="wrap trust-row">
+    <div class="trust-item">
+      <div class="trust-seal"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z"/></svg></div>
+      <div><strong>Police Verified</strong><br><small>Before every deployment</small></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-seal"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+      <div><strong>Live GPS Tracking</strong><br><small>Families can follow every trip</small></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-seal"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 2l2.5 5 5.5.7-4 4 1 5.5L12 15l-5 2.2 1-5.5-4-4 5.5-.7z"/></svg></div>
+      <div><strong>Ex-Servicemen Only</strong><br><small>Uttarakhand veterans, JCO/NCO rank</small></div>
+    </div>
+    <div class="trust-item">
+      <div class="trust-seal"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 12h16M4 6h16M4 18h16"/></svg></div>
+      <div><strong>No Cash Handling</strong><br><small>Written no-financial-transaction policy</small></div>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What our companions do</h2>
+      <p>Every escort is trained for first aid, navigation and calm, courteous conduct — ready for the routine and the unexpected.</p>
+    </div>
+    <div class="services-grid" id="servicesGrid"></div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Why an ex-serviceman?</h2>
+      <p>Uttarakhand's Veer Bhoomi has one of India's highest per-capita rates of military service. We give that discipline a second career — and your parents a companion families trust on sight.</p>
+    </div>
+    <div class="why-grid" id="whyGrid"></div>
+  </div>
+</section>
+
+<section id="packages">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Monthly packages</h2>
+      <p>Every plan includes police-verified escorts, GPS tracking and a 10% discount on annual upfront payment. GST (18%) applies.</p>
+    </div>
+    <div class="pkg-grid" id="pkgGrid"></div>
+
+    <div style="margin-top:52px;">
+      <h3 style="font-size:20px;margin-bottom:16px;">Pay-per-use rates</h3>
+      <table class="rate-table">
+        <thead><tr><th>Service</th><th style="text-align:right;">Rate</th></tr></thead>
+        <tbody id="rateBody"></tbody>
+      </table>
+      <p style="font-size:12.5px;color:var(--ink-soft);margin-top:12px;">Transport (auto/cab) billed separately at actuals unless included in an outstation package.</p>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How booking works</h2>
+      <p>From request to a familiar face at the door — in four steps.</p>
+    </div>
+    <div class="steps">
+      <div class="step-row">
+        <div class="step-num"></div>
+        <div class="step-body"><h4>Tell us what's needed</h4><p>Fill the form below with the outing, date and any medical or mobility notes — takes under two minutes.</p></div>
+      </div>
+      <div class="step-row">
+        <div class="step-num"></div>
+        <div class="step-body"><h4>We match a verified escort</h4><p>An ex-serviceman fluent in the client's language and familiar with the destination is assigned within 24 hours (priority booking on Gold &amp; Platinum).</p></div>
+      </div>
+      <div class="step-row">
+        <div class="step-num"></div>
+        <div class="step-body"><h4>Family gets the details</h4><p>You receive the escort's name, service record and live location link before the trip begins.</p></div>
+      </div>
+      <div class="step-row">
+        <div class="step-num"></div>
+        <div class="step-body"><h4>Trip &amp; feedback</h4><p>The escort accompanies your parent throughout, then you rate the experience — every rating shapes our monthly retraining.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="safety">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Trust &amp; safety protocols</h2>
+      <p>Written into every escort's code of conduct, not just a promise.</p>
+    </div>
+    <div class="safety-grid" id="safetyGrid"></div>
+  </div>
+</section>
+
+<section class="booking" id="book">
+  <div class="wrap booking-grid">
+    <div class="booking-side">
+      <h3>Request a companion</h3>
+      <p>Share a few details and our Dehradun office will confirm your escort within 24 hours. For same-day needs, call us directly.</p>
+      <div class="contact-line">
+        <div class="trust-seal"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .6 2.9a2 2 0 01-.5 2.1L8 9.9a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c.9.3 1.9.5 2.9.6a2 2 0 011.8 2z"/></svg></div>
+        <span>+91 135 000 0000 · Civil Lines, Dehradun</span>
+      </div>
+      <div class="contact-line">
+        <div class="trust-seal"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+        <span>hello@apnasahara.in</span>
+      </div>
+      <div class="contact-line">
+        <div class="trust-seal"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="12" cy="10" r="3"/><path d="M12 21s7-6.3 7-11a7 7 0 10-14 0c0 4.7 7 11 7 11z"/></svg></div>
+        <span>Dehradun &amp; within 100km — Haridwar, Rishikesh, Mussoorie</span>
+      </div>
+    </div>
+
+    <div>
+      <form class="booking-form" id="bookingForm">
+        <div class="form-row">
+          <div class="field"><label>Your name</label><input required id="f_name" type="text" placeholder="e.g. Priya Sharma"></div>
+          <div class="field"><label>Phone number</label><input required id="f_phone" type="tel" placeholder="10-digit mobile"></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label>Elderly member's name</label><input required id="f_elder" type="text" placeholder="Who is being escorted"></div>
+          <div class="field"><label>Age</label><input required id="f_age" type="number" min="50" max="110" placeholder="e.g. 74"></div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label>Service needed</label>
+            <select id="f_service">
+              <option>Medical Escort</option>
+              <option>Pilgrimage &amp; Travel Escort</option>
+              <option>Daily Chores Escort</option>
+              <option>Social Event Escort</option>
+              <option>Emergency Standby</option>
+              <option>Overnight / Outstation Escort</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Preferred package</label>
+            <select id="f_package">
+              <option>Pay-per-use (no subscription)</option>
+              <option>Silver — ₹3,500/mo</option>
+              <option>Gold — ₹6,500/mo</option>
+              <option>Platinum — ₹11,000/mo</option>
+              <option>Family Care — ₹10,000/mo</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label>Preferred date</label><input required id="f_date" type="date"></div>
+          <div class="field"><label>Pickup area</label><input required id="f_area" type="text" placeholder="e.g. Rajpur Road"></div>
+        </div>
+        <div class="field"><label>Notes for the escort (optional)</label><textarea id="f_notes" placeholder="Mobility needs, preferred language, medical notes..."></textarea></div>
+        <button type="submit" class="btn btn-brass submit-btn">Confirm Request</button>
+        <p class="form-note">No payment is taken now — our team calls to confirm the escort and package.</p>
+      </form>
+
+      <div class="confirm-box" id="confirmBox">
+        <div class="stamp-big"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h3 style="color:var(--paper);">Request received</h3>
+        <p style="color:rgba(241,236,223,0.8);margin-top:8px;">We'll call within 24 hours to confirm your escort.</p>
+        <div class="confirm-id" id="confirmId"></div>
+        <button class="btn btn-outline" style="margin-top:18px;border-color:var(--brass-light);color:var(--brass-light);" onclick="resetForm()">Submit another request</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <h4>Apna Sahara</h4>
+      <p>Trusted companion escorts for elderly and retired individuals in Dehradun, staffed entirely by honourably discharged ex-servicemen of Uttarakhand.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#safety">Trust &amp; Safety</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Office</h4>
+      <ul>
+        <li>Civil Lines, Dehradun</li>
+        <li>Uttarakhand, India</li>
+        <li>+91 135 000 0000</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Apna Sahara. Serving those who cannot serve themselves — by those who have served the nation.</span>
+    <a href="#" id="adminLink" style="color:rgba(241,236,223,0.4);">Staff login</a>
+  </div>
+</footer>
+
+<div class="admin-panel" id="adminPanel">
+  <div class="admin-inner">
+    <h3>Booking Requests <button class="admin-close" onclick="closeAdmin()">&times;</button></h3>
+    <div id="bookingsList"></div>
+  </div>
+</div>
+
+<script>
+const services = [
+  {t:"Medical Escort", d:"Hospitals, clinics, diagnostic labs and pharmacy runs — with someone who stays for the whole appointment.", icon:'<path d="M12 4v16M4 12h16"/>'},
+  {t:"Pilgrimage & Travel", d:"Haridwar, Rishikesh, Mussoorie and nearby shrines, timed around your parent's pace, not a tour bus schedule.", icon:'<path d="M12 2l2.5 5 5.5.7-4 4 1 5.5L12 15l-5 2.2 1-5.5-4-4 5.5-.7z"/>'},
+  {t:"Daily Chores", d:"Banks, markets, government offices and utility bill payments — the small errands that add up to independence.", icon:'<rect x="4" y="7" width="16" height="13" rx="1"/><path d="M9 7V5a3 3 0 016 0v2"/>'},
+  {t:"Social Events", d:"Weddings, family functions and community gatherings — company that keeps up with the day, not just the drive.", icon:'<circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M2 20c0-3.3 3-6 7-6s7 2.7 7 6"/>'},
+  {t:"Emergency Standby", d:"On-call escorts for unexpected needs, dispatched in under two hours, day or night.", icon:'<path d="M12 2v6M12 16v6M4.9 4.9l4.2 4.2M14.9 14.9l4.2 4.2M2 12h6M16 12h6M4.9 19.1l4.2-4.2M14.9 9.1l4.2-4.2"/>'},
+  {t:"Overnight / Outstation", d:"Multi-day trips with full logistics — stays, meals and transport arranged around your parent's comfort.", icon:'<rect x="3" y="11" width="18" height="8" rx="2"/><path d="M5 11V8a5 5 0 0110 0v3"/>'},
+];
+
+const why = [
+  {n:"01", t:"Trained under pressure — first aid, navigation and composure in a crisis, not just directions."},
+  {n:"02", t:"Rooted in Dehradun's terrain, roads and hospitals — no learning curve on day one."},
+  {n:"03", t:"Speaks Hindi, Garhwali and Kumaoni — the language your parents are most at ease in."},
+  {n:"04", t:"A second, dignified career for soldiers who gave 15+ years to the nation."},
+];
+
+const packages = [
+  {tag:null, name:"Subscription", h:"Silver", price:"₹3,500", per:"/month", best:"For a single weekly outing", items:["4 escorts/month · up to 4 hrs each","Within Dehradun city","Medical & shopping trips"]},
+  {tag:"Most Booked", name:"Subscription", h:"Gold", price:"₹6,500", per:"/month", best:"For active elderly, frequent appointments", items:["8 escorts/month · up to 5 hrs each","Dehradun + Haridwar/Rishikesh","Priority booking within 24 hrs"], featured:true},
+  {tag:null, name:"Subscription", h:"Platinum", price:"₹11,000", per:"/month", best:"For solo elderly, regular travel needs", items:["Unlimited escorts, up to 20 hrs/month","Any destination within 100 km","Dedicated escort assigned","Emergency standby — 2 calls/month"]},
+  {tag:null, name:"Subscription", h:"Family Care", price:"₹10,000", per:"/month", best:"For a couple or parent+sibling pair", items:["Covers 2 family members","12 escorts/month · up to 5 hrs each","Monthly health-check accompaniment","Family app updates after each trip"]},
+];
+
+const rates = [
+  ["Half-day escort (up to 4 hrs, within city)","₹700"],
+  ["Full-day escort (up to 8 hrs, within city)","₹1,200"],
+  ["Outstation day trip (up to 100 km, up to 8 hrs)","₹1,800"],
+  ["Overnight / multi-day escort (per day)","₹2,500 + stay"],
+  ["Emergency escort (under 2 hrs notice)","₹900 flat"],
+  ["Pilgrimage escort — Haridwar/Rishikesh (half-day)","₹900"],
+  ["Airport / railway station drop & assist","₹600"],
+];
+
+const safety = [
+  {t:"Police verification", d:"Every escort undergoes mandatory character verification before deployment."},
+  {t:"Regimental background check", d:"Service record verified against regimental centres and record offices."},
+  {t:"Live GPS tracking", d:"Location tracked through duty hours; families can view via the app."},
+  {t:"Emergency protocol", d:"Escorts trained to contact hospital, police and family immediately in a medical emergency."},
+  {t:"Post-trip rating", d:"1–5 star feedback after every trip; complaints reviewed within 24 hours."},
+  {t:"No-cash policy", d:"Escorts never handle client cash or valuables — documented in writing."},
+];
+
+function iconWrap(svg){ return `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">${svg}</svg>`; }
+
+document.getElementById('servicesGrid').innerHTML = services.map(s=>`
+  <div class="service-card">
+    <div class="service-icon">${iconWrap(s.icon)}</div>
+    <h3>${s.t}</h3><p>${s.d}</p>
+  </div>`).join('');
+
+document.getElementById('whyGrid').innerHTML = why.map(w=>`
+  <div class="why-item"><span class="num">${w.n}</span><p>${w.t}</p></div>`).join('');
+
+document.getElementById('pkgGrid').innerHTML = packages.map(p=>`
+  <div class="pkg-card ${p.featured?'featured':''}">
+    ${p.tag?`<div class="pkg-tag">${p.tag}</div>`:''}
+    <div class="pkg-name">${p.name}</div>
+    <h3>${p.h}</h3>
+    <div class="pkg-price">${p.price} <small>${p.per}</small></div>
+    <div class="pkg-best">${p.best}</div>
+    <ul class="pkg-list">${p.items.map(i=>`<li>${i}</li>`).join('')}</ul>
+    <button class="pkg-btn" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'});document.getElementById('f_package').value='${p.h}${p.h==='Family Care'?'':''} — ${p.price}/mo'.replace('Family Care — ₹10,000/mo','Family Care — ₹10,000/mo')">Choose ${p.h}</button>
+  </div>`).join('');
+
+document.getElementById('rateBody').innerHTML = rates.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('');
+
+document.getElementById('safetyGrid').innerHTML = safety.map(s=>`
+  <div class="safety-item">
+    <div class="trust-seal">${iconWrap('<path d="M12 2l7 4v6c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-4z"/>')}</div>
+    <div><h4>${s.t}</h4><p>${s.d}</p></div>
+  </div>`).join('');
+
+// Booking form
+document.getElementById('bookingForm').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const id = 'AS-' + Date.now().toString().slice(-8);
+  const booking = {
+    id,
+    name: document.getElementById('f_name').value,
+    phone: document.getElementById('f_phone').value,
+    elder: document.getElementById('f_elder').value,
+    age: document.getElementById('f_age').value,
+    service: document.getElementById('f_service').value,
+    package: document.getElementById('f_package').value,
+    date: document.getElementById('f_date').value,
+    area: document.getElementById('f_area').value,
+    notes: document.getElementById('f_notes').value,
+    submittedAt: new Date().toISOString(),
+  };
+  try{
+    await window.storage.set('booking:'+id, JSON.stringify(booking), true);
+  }catch(err){ console.error('Storage failed', err); }
+  document.getElementById('bookingForm').style.display='none';
+  document.getElementById('confirmBox').classList.add('show');
+  document.getElementById('confirmId').textContent = 'Reference: ' + id;
+});
+
+function resetForm(){
+  document.getElementById('bookingForm').reset();
+  document.getElementById('bookingForm').style.display='block';
+  document.getElementById('confirmBox').classList.remove('show');
+}
+
+// Admin panel
+document.getElementById('adminLink').addEventListener('click', async (e)=>{
+  e.preventDefault();
+  const panel = document.getElementById('adminPanel');
+  panel.classList.add('show');
+  const list = document.getElementById('bookingsList');
+  list.innerHTML = '<div class="empty-state">Loading...</div>';
+  try{
+    const keys = await window.storage.list('booking:', true);
+    if(!keys || !keys.keys || keys.keys.length===0){
+      list.innerHTML = '<div class="empty-state">No booking requests yet.</div>';
+      return;
+    }
+    let rows = [];
+    for(const k of keys.keys){
+      try{
+        const res = await window.storage.get(k, true);
+        if(res) rows.push(JSON.parse(res.value));
+      }catch(err){}
+    }
+    rows.sort((a,b)=> new Date(b.submittedAt) - new Date(a.submittedAt));
+    list.innerHTML = rows.map(b=>`
+      <div class="booking-row">
+        <b>${b.elder}</b> (age ${b.age}) — requested by ${b.name}, ${b.phone}<br>
+        ${b.service} · ${b.package} · ${b.date} · ${b.area}
+        ${b.notes?`<br><span style="color:var(--ink-soft);">Note: ${b.notes}</span>`:''}
+        <br><span class="mono" style="color:var(--brass);font-size:11px;">${b.id}</span>
+      </div>`).join('');
+  }catch(err){
+    list.innerHTML = '<div class="empty-state">Could not load bookings.</div>';
+  }
+});
+function closeAdmin(){ document.getElementById('adminPanel').classList.remove('show'); }
+</script>
+</body>
+</html>
